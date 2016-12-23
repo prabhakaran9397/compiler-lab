@@ -1,7 +1,8 @@
 %{
-	#include <stdio.h>
 	int chars=0, lines=0;
 %}
+
+%option noyywrap
 
 %%
 
