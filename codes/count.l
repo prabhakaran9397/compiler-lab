@@ -1,3 +1,7 @@
+/*
+count the number of characters and lines
+*/
+
 %{
 	int chars=0, lines=0;
 %}

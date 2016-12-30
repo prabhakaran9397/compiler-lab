@@ -1,3 +1,8 @@
+/*
+Print 'n's from a string of 'i's and 'n's
+print 'Invalid String' if it has anything other than 'i' or 'n'
+*/
+
 %{
 	int i;
 %}

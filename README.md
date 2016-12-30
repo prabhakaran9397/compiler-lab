@@ -12,14 +12,11 @@ $`vim ~/Makefile`
 
 #### `Makefile` content
 ```
-%.o:	%.c
+%:	%.c
 	gcc -o $@ $^ -ll
 
 %.c:	%.l
 	lex -o $@ $^
-
-clean:
-	rm *.o
 ```
 #### Aliasing `make command` 
 $`echo 'alias mkl="make -f ~/Makefile"' >> ~/.*shrc`
@@ -54,17 +51,4 @@ $`cat hello.c | ./count.o`
 ```
 Number of chars: 77
 Number of lines: 7
-```
-##### Cleaning the object files - if necessary
-$`ls`
-```
-count.l  count.o  hello.c
-```
-$`mkl clean`
-```
-rm *.o
-```
-$`ls`
-```
-count.l hello.c
 ```

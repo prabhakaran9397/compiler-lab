@@ -1,3 +1,7 @@
+/*
+Print alphabets from alphanumeric string
+*/
+
 %{
 	int i;
 %}
