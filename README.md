@@ -13,7 +13,7 @@ $`vim ~/Makefile`
 #### `Makefile` content
 ```
 %:	%.c
-	gcc -o $@ $^ -ll
+	g++ -o $@ $^ -ll
 
 %.c:	%.l
 	lex -o $@ $^
@@ -33,7 +33,7 @@ count.l hello.c
 $`mkl count.o`
 ```
 lex -o count.c count.l
-gcc -o count.o count.c -ll
+g++ -o count.o count.c -ll
 rm count.c
 ```
 ##### Execute it like this
