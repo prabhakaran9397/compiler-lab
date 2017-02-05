@@ -29,15 +29,15 @@ $`cd ~/compiler-lab/codes && ls`
 ```
 count.l hello.c
 ```
-###### Replace `.l` with `.o` and make the lex file
-$`mkl count.o`
+###### Remove `.l` to make the lex file
+$`mkl count`
 ```
 lex -o count.c count.l
-g++ -o count.o count.c -ll
+g++ -o count count.c -ll
 rm count.c
 ```
 ##### Execute it like this
-$`./count.o`
+$`./count`
 ```
 hello
 This is a test
@@ -47,7 +47,7 @@ Number of chars: 24
 Number of lines: 3
 ```
 ###### To test a c program using lex
-$`cat hello.c | ./count.o`
+$`cat hello.c | ./count`
 ```
 Number of chars: 77
 Number of lines: 7
