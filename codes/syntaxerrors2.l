@@ -16,27 +16,27 @@ AR	("["[0-9]+"]")+
 
 %%
 <INITIAL>{DT}	{ BEGIN DECS;	offset+=yyleng;	}
-<DECS>{ID}	{ BEGIN DECM;	offset+=yyleng; }
+<DECS>{ID}	{ BEGIN DECM;	offset+=yyleng;	}
 <DECS>.		{ BEGIN ERROR;			}
 <DECM>{AR}	{ BEGIN DECE;	offset+=yyleng;	}
-<DECM>\(	{ BEGIN FUNC; 	offset+=yyleng;	}
-<DECM>;         { BEGIN 0;      offset+=yyleng;	}
+<DECM>\(	{ BEGIN FUNC;	offset+=yyleng;	}
+<DECM>;		{ BEGIN 0;	offset+=yyleng;	}
 <DECM>.		{ BEGIN ERROR;			}
-<DECE>{WS}	{ 		offset+=yyleng;	}
-<DECE>,		{ BEGIN DECS;	offset+=yyleng; }
+<DECE>{WS}	{		offset+=yyleng;	}
+<DECE>,		{ BEGIN DECS;	offset+=yyleng;	}
 <DECE>;		{ BEGIN 0;	offset+=yyleng;	}
-<DECE>.         { BEGIN ERROR;			}
+<DECE>.		{ BEGIN ERROR;			}
 <FUNC>{WS}	{		offset+=yyleng;	}
 <FUNC>{DT}	{ BEGIN FDES;	offset+=yyleng;	}
 <FUNC>.		{ BEGIN ERROR;			}
 <FDES>{ID}{AR}?	{ BEGIN FDEE;	offset+=yyleng;	}
-<FDES>.		{ BEGIN ERROR;                	}
-<FDEE>{WS}      {               offset+=yyleng; }
-<FDEE>,         { BEGIN FUNC;   offset+=yyleng;	}
+<FDES>.		{ BEGIN ERROR;			}
+<FDEE>{WS}	{		offset+=yyleng;	}
+<FDEE>,		{ BEGIN FUNC;	offset+=yyleng;	}
 <FDEE>\)	{ BEGIN 0;	offset+=yyleng;	}
-<FDEE>.         { BEGIN ERROR;			}
+<FDEE>.		{ BEGIN ERROR;			}
 <ERROR>\n	{ BEGIN 0;	printf("Error in line %d at %d\n", yylineno-1, offset); offset=0; }
-\n		{ BEGIN 0; 	offset=0;	}
+\n		{ BEGIN 0;	offset=0;	}
 .		;
 %%
 
