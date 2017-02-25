@@ -7,19 +7,15 @@ $`sudo apt-get update`
 
 $`sudo apt-get install byacc flex`
 
-### Using `Makefile`
-$`vim ~/Makefile`
+### Using `Makefile` 
+###### Download the makefiles from my repo
+$`cp ~/compiler-lab/mkl ~/.mkl; cp ~/compiler-lab/mky ~/.mky`
 
-#### `Makefile` content
-```
-%:	%.c
-	g++ -o $@ $^ -ll
+#### Aliasing `make command`
 
-%.c:	%.l
-	lex -o $@ $^
-```
-#### Aliasing `make command` 
-$`echo 'alias mkl="make -f ~/Makefile"' >> ~/.*shrc`
+$`echo 'alias mkl="make -f ~/.mkl"' >> ~/.*shrc`
+
+$`echo 'alias mky="make -f ~/.mky"' >> ~/.*shrc`
 
 $`source ~/.*shrc`
 
@@ -29,7 +25,7 @@ $`cd ~/compiler-lab/codes && ls`
 ```
 count.l hello.c
 ```
-###### Remove `.l` to make the lex file
+###### Type without `.l` to make the lex file
 $`mkl count`
 ```
 lex -o count.c count.l
