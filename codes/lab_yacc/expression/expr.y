@@ -5,32 +5,32 @@
 %token BOP UOP ID NUM IF ELSE
 
 %%
-ifstmt	: IF '(' expr ')' body else	{ printf("[if start]");}
+ifstmt	: IF '(' expr ')' body else	{ printf("[IF start]"); }
        	;
-body	: '{' stmts '}'		{ printf("[{stmts}]");}
-     	| stmt			{ printf("[stmt]");}
+body	: '{' stmts '}'			{ printf("[{stmts}]"); }
+     	| stmt				{ printf("[stmt]"); }
 	;
-else	: ELSE ' ' ifstmt	{ printf("[ELSE space ifstmt]");}
-     	| ELSE body		{ printf("[ELSE body]");}
-	|			{ printf("[(e)]"); }
+else	: ELSE ' ' ifstmt		{ printf("[ELSE space ifstmt]"); }
+     	| ELSE body			{ printf("[ELSE body]"); }
+	|				{ printf("[(e)]"); }
 	;
-stmts	: stmt stmts	{ printf("[stmt][stmts]"); }
-	|		{ printf("[]"); }
+stmts	: stmt stmts			{ printf("[stmt][stmts]"); }
+      	|				{ printf("[]"); }
 	;
-stmt	: expr ';'	{ printf("[stmt]"); }
-     	| ifstmt
-	| ';'
-     	;
-expr	: expr BOP term	{ printf("[eBt]"); }
-     	| term		{ printf("[t]"); }
+stmt	: expr ';'			{ printf("[stmt]"); }
+     	| ifstmt			{ printf("[ifstmt]"); }
+	| ';'				{ printf("[;]"); }
 	;
-term	: '(' expr ')'	{ printf("[(e)]"); }
-    	| id		{ printf("[id]"); }
-	| NUM		{ printf("[NUM]"); }
+expr	: expr BOP term			{ printf("[eBt]"); }
+     	| term				{ printf("[t]"); }
 	;
-id	: UOP ID	{ printf("[UID]"); }
-   	| ID UOP	{ printf("[IDU]"); }
-	| ID		{ printf("[ID]"); }
+term	: '(' expr ')'			{ printf("[(e)]"); }
+     	| id				{ printf("[id]"); }
+	| NUM				{ printf("[NUM]"); }
+	;
+id	: UOP ID			{ printf("[UID]"); }
+   	| ID UOP			{ printf("[IDU]"); }
+	| ID				{ printf("[ID]"); }
 	;
 %%
 
