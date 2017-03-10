@@ -1,0 +1,11 @@
+%:		%.yacc.c %.lex.c
+		g++ -o $@ $^ -ll
+		rm *.yacc.h
+
+%.lex.c:	%.l
+		lex -o $@ $^
+
+%.yacc.c:	%.y
+		yacc -o $@ -d $^
+
+
