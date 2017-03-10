@@ -32,7 +32,7 @@ count.l hello.c
 $`mkl count`
 ```
 lex -o count.c count.l
-g++ -o count count.c -ll
+gcc -o count count.c -ll
 rm count.c
 ```
 ##### Execute it like this
