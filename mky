@@ -1,5 +1,5 @@
 %:	%.y.c %.l.c
-	g++ -o $@ $^ -ll
+	gcc -o $@ $^ -ll
 	rm *.y.h
 
 %.l.c:	%.l
