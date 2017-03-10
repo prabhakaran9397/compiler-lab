@@ -1,11 +1,14 @@
 ## Compiler Design Lab
 
-Download this repository -> [compiler-lab](https://github.com/prabhakaran9397/compiler-lab/archive/master.zip)
+Download this repository -> [compiler-lab](https://github.com/prabhakaran9397/compiler-lab/archive/master.zip) (move it to home folder)
 
 ### Installing lex & yacc
 $`sudo apt-get update`
 
 $`sudo apt-get install byacc flex`
+
+### To clone
+$`cd ~ && git clone https://github.com/prabhakaran9397/compiler-lab/`
 
 ### Using `Makefile` 
 ###### Download the makefiles from my repo
